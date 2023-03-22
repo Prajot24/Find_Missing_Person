@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0px;
+    color: #44566c;
+    font-family: "Poppins", sans-serif;
+    --blue: #007bef;
+}
+body{
+    
+    height: 100vh;
+}
+.nav-bar{
+    align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+.nav-bar > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-bar > div > p{
+    margin-left: 20px;
+}
+.main-cont{
+    padding: 20px;  
+    margin-top: 20px;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+.form-cont{
+    flex: 0.5;
+    display: flex;  
+    flex-direction: column;
+    padding: 30px;
+}
+
+.form-cont > * {
+    margin-top: 20px;
+}
+.output-cont{
+    flex: 0.5;
+    margin-left: 0px;
+    /* border-left: 1px solid lightgray; */
+    padding-left: 30px;     
+    display: flex;
+    flex-direction: column;
+}
+.output-cont > .time{
+    color: var(--blue);
+}
+.output-cont > p{
+    font-size: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.output-cont > img {
+    margin-top:  20px;
+    margin-bottom: 20px;
+}
+.input_label{
+    display: flex;
+    flex-direction: column;
+    
+}
+.input_label > * {
+    margin: 0px;
+}
+.input_label > label{
+    font-size: 12px;
+}
+.label-text{
+    font-size: 12px;
+    color: rgb(171, 171, 171);
+}
+.nav-links > a{
+   
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}

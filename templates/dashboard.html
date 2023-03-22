@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}" >
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <div class="NavBar">
+            <h2>Dashboard</h2>
+            <div>
+                <p><a href="/register_case">New Case</a></p>
+                <p><a href="/logout">Logout</a></p>
+            </div>
+        </div>
+        <h4 style="margin:20px 0px; font-weight: normal;">Your Cases</h4>
+        <div class="card-cont">
+            {% for i in cases%}
+                <div class="card">
+                    <img src="{{ i.Image.url }}" alt="" height="100px" width="100px" style="object-fit: cover;">
+                    <h4>{{ i.Name }}</h4>
+                    <p class="date">Missing Date : {{ i.DOM }} </p>
+                   
+                    <div class="btn-group">
+                        <button>Edit </button>
+                        <button >Delete Case</button>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- <div class="card">
+                <img src="https://th.bing.com/th/id/R.38d1826c0fc236c3949aaf530c5d6650?rik=hcleB4N59nmMyA&riu=http%3a%2f%2fimg1.izismile.com%2fimg%2fimg3%2f20101207%2f640%2fportraits_of_famous_640_27.jpg&ehk=FYxVbE6nOY7jDDPkbS%2fNI4U6vopNPLle50cGs%2b5AlGM%3d&risl=&pid=ImgRaw&r=0Z" alt="" height="100px" width="100px">
+                <h4>Pramod Kambale</h4>
+                <p class="date">29 Dec 2022 </p>
+                <p class="chip">Currently Active</p>
+                <div class="btn-group">
+                    <button>Edit </button>
+                    <button>Delete Case</button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/FrontPage.css">
+    <link rel="stylesheet" href="{% static 'FrontPage.css' %}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <title>Search Your Person</title>
+</head>
+
+<body>
+    <div class="btngroup">
+    <a href="/register">
+    <button class="Register">Register</button></a>
+    <a href="/login">
+    <button class="Login">Login</button></div></a>
+    <h1>Search Your Person</h1>
+    <img class="preview" src="/static/preview.jpg" height="200px" alt="" id="blah">
+    <form class="input-area" action="/find/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="drag-area" >
+            
+            <p style="color:lightgray;text-align: center;">Drag & Drop to upload file <br> OR </p>
+       
+            <input type="file" class="upload" id="default_btn" accept="image/jpg"  name="inputImage" hidden>
+            <span onclick="openimge()" class="uploader">Upload Image </span>
+        </div>
+        <div class="search">
+            <label for="name"></label>
+            <input id="name" type="text" name="PersonName" placeholder="Enter name" >
+            <button type="submit">Search</button>
+        </div>
+        
+    </form>
+
+        <ul>
+            <li><a href="FrontPage.html">Home</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+        </ul>
+
+        <script>
+            let imgInp = document.getElementById('default_btn')
+            let blah = document.getElementById('blah') 
+            imgInp.onchange = evt => {
+                const [file] = imgInp.files
+                if (file) {
+                  blah.src = URL.createObjectURL(file)
+                }
+              }
+              const defaultBtn = document.querySelector("#default_btn");
+              const customeBtn = document.querySelector("#custome-btn");
+              function defaultBtnActive(){
+                  defaultBtn.click();
+              }
+            
+            function openimge(){
+                defaultBtn.click();
+                
+            }
+
+        </script>
+
+</body>
+
+
+
+</html>

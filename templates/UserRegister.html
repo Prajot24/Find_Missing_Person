@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-cont"> 
+        <h2 style="margin-bottom: 5px;" class="login-title">Register</h2>
+        <form action="" method="POST" class="form-login">
+            {% csrf_token %}
+            <div class="input-label">
+                <label for="Mobile">Name</label>
+                <input type="text" placeholder="Enter Name" name="name">
+            </div>
+            <div class="input-label">
+                <label for="Mobile">Email</label>
+                <input type="email" placeholder="Enter Email" name="email">
+            </div>
+            <div class="input-label">
+                <label for="Mobile">Mobile</label>
+                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "number"
+                maxlength = "10" placeholder="Enter Mobile" name="mobile">
+            </div>
+            <div class="input-label">
+                <label for="Mobile">Password</label>
+                <input type="text" placeholder="Enter Password" name="password">
+            </div>
+
+            <div class="group-btn register-btn">
+                <button class="btn-primary">Register</button>
+                <p>already have an account ? <a href="/login">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

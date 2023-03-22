@@ -1,17 +1,112 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'RegisterForm.css' %}">
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> -->
+    <title>Case Register</title>
 </head>
 <body>
-    <h2>Register form </h2>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <input type="submit">
+    <div class="wrapper">
+        <div class="title">
+          <h3>Registration Form</h3>
+        </div>
+        <!-- <div class="wrapper">
+         <header>Upload Images</header>
+         <form action="#">
+           <input class="file-input" type="file" name="file" accept="image/jpg, image/png" hidden>
+           <i class="fas fa-cloud-upload-alt"></i>
+           <p>Browse File to Upload</p>
+         </form>
+         <section class="progress-area"></section>
+         <section class="uploaded-area"></section>
+       </div> -->
+        <form class="form" method='POST' action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputfield ">
+                <label>Image</label>
+                <input type="file" class="input" name="Image">
+            
+             </div> 
+         
+             <div class="inputfield">
+               
+              <label>Full Name</label>
+              <input type="text" class="input" name="Name">
+           </div>  
+            <div class="inputfield">
+              <label>Nick Name</label>
+              <input type="text" class="input" name="NickName">
+           </div>  
+           <div class="inputfield">
+              <label>Age</label>
+              <input type="number" class="input" name="Age">
+           </div> 
+           <div class="inputfield">
+            <label>Weight(Kg)</label>
+            <input type="number" class="input" name="Weight">
+         </div>  
+         <div class="inputfield">
+            <label>Height</label>
+            <input type="number" class="input" name="Height">
+         </div>  
+          <div class="inputfield">
+              <label>Birth Date</label>
+              <input type="date" class="input" name="BOD">
+           </div> 
+           <div class="inputfield">
+            <label>Date Missing</label>
+            <input type="date" class="input" name="DOM">
+         </div> 
+            <div class="inputfield">
+              <label>Gender</label>
+              <div class="custom_select">
+                <select name="Gender">
+                  <option value="">Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+             
+           </div> 
+            <div class="inputfield">
+              <label>Place Missing</label>
+              <input type="text" class="input" name="MissingPlace">
+           </div> 
+           <div class="inputfield">
+            <label>Last Used Cloths</label>
+            <input type="text" class="input" name="LastCloths">
+         </div>
+         <div class="inputfield">
+            <label>Birth Mark</label>
+            <input type="text" class="input" name="BirthMark">
+         </div>
+          <div class="inputfield">
+              <label>Phone Number</label>
+              <input type="text" class="input" name="Mobile">
+           </div> 
+           <div class="inputfield">
+            <label>District, State</label>
+            <input type="text" class="input" name="Dis"> 
+         </div>
+          <div class="inputfield">
+              <label>Address</label>
+              <textarea class="textarea" name="Address"></textarea>
+           </div> 
+      
+          <div class="inputfield">
+            <!-- <input type="submit" value="Register" class="btn"> -->
+            <button class="btn" type="submit">Register</button>
+            
+          </div>
+        </div>
     </form>
+    <script src="{% static 'script.js' %}"></script>
+    
+   
+
 </body>
 </html>

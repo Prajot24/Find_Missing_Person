@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'SearchPerson.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <h1>Find Person </h1>
+        <div class="nav-links">
+            <p><a href="/">Home</a></p>
+            <p><a href="/register">Register</a></p>
+        </div>
+    </div>
+    <div class="main-cont">
+        {% comment %} <form class="form-cont" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if current %}
+                <img src="/media/somename.jpeg" alt="" id="output" height="150px" style="width: fit-content;border-radius: 10px;" >
+            {% else %}
+                <img src="" alt="" id="output"  height="150px"  style="width: fit-content;border-radius: 10px;">
+            {% endif %}
+            <div class="input_label">
+                <label for="Name"> Name </label>
+                <input type="text" name="PersonName">
+            </div>
+            
+            <input type="file" name="inputImage"  onchange="loadEvent(event)">
+            <button type="submit">submit</button>
+        </form> {% endcomment %}
+      
+        <div>
+            <img src='{{ link }}' width="250px" alt="" style="border-radius: 10px;">
+        </div>
+        <div class="output-cont">
+            <!-- <h3>{{ time }}</h3> -->
+            {% if person %}
+            <h3>{{ person.Name }}</h3>
+            <p class="time"> Time : {{ time }}</p>
+            <p class="label-text">Contact information</p>
+            <p>Address: {{ person.Address }}</p>
+            <p>Mobile: {{ person.Mobile }}</p>
+            <p>Nick Nmae: {{ person.NickName }}</p>
+            <p>Birth Mark: {{ person.BirthMark }}</p>
+            <p>Last Used Cloths: {{ person.ClothingColor }}</p>
+            <p>District: {{ person.Dis }}</p>
+            <p>Missing Place: {{ person.MissingPlace }}</p>
+
+            {% else %}
+            <h3>Data not found </h3>
+            {% endif %}
+
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    var loadEvent = function (event) {
+        var image = document.getElementById('output')
+        image.src = URL.createObjectURL(event.target.files[0])
+    }
+</script>
+
+</html>
